@@ -11,6 +11,7 @@ type foo struct {
 	sync.Mutex
 }
 
+// 创建了两个goroutine：g2和g3，g3阻塞在加锁操作上
 func main() {
 	f := foo{n: 17}
 
