@@ -3,10 +3,13 @@ package testdata_demo1
 import (
 	"bytes"
 	"encoding/xml"
+	"flag"
 	"io/ioutil"
 	"path/filepath"
 	"testing"
 )
+
+var update = flag.Bool("update", false, "update .golden files")
 
 func TestAttendeeMarshal(t *testing.T) {
 	tests := []struct {
@@ -28,7 +31,12 @@ func TestAttendeeMarshal(t *testing.T) {
 		if err != nil {
 			t.Fatalf("want nil, got %v", err)
 		}
-		want, err := ioutil.ReadFile(filepath.Join("testdata", tt.fileName))
+		golden := filepath.Join("testdata", tt.fileName)
+		if *update {
+			ioutil.WriteFile(golden, got, 0644)
+		}
+
+		want, err := ioutil.ReadFile(golden)
 		if err != nil {
 			t.Fatalf("open file %s failed: %v", tt.fileName, err)
 		}
