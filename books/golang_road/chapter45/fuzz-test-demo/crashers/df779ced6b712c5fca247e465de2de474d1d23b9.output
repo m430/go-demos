@@ -1,0 +1,14 @@
+panic: runtime error: index out of range [5] with length 5
+
+goroutine 1 [running]:
+go-demos/books/golang_road/chapter44/fuzz-test-demo.ParseComplex.func5(...)
+	/Users/andy/goProjects/go-demos/books/golang_road/chapter44/fuzz-test-demo/parse_complex.go:5
+go-demos/books/golang_road/chapter44/fuzz-test-demo.ParseComplex({0x2810000?, 0xc000092e98?, 0x1057d97?})
+	/Users/andy/goProjects/go-demos/books/golang_road/chapter44/fuzz-test-demo/parse_complex.go:5 +0x16f
+go-demos/books/golang_road/chapter44/fuzz-test-demo.Fuzz({0x2810000?, 0xc000092f10?, 0x10c31e0?})
+	/Users/andy/goProjects/go-demos/books/golang_road/chapter44/fuzz-test-demo/parse_complex_fuzz.go:7 +0x37
+go-fuzz-dep.Main({0xc000092f68, 0x1, 0x105ce00?})
+	go-fuzz-dep/main.go:36 +0x15a
+main.main()
+	go-demos/books/golang_road/chapter44/fuzz-test-demo/go.fuzz.main/main.go:15 +0x3b
+exit status 2
